@@ -26,5 +26,4 @@
 # be ignored. Again, no spaces or tabs allowed before '#'.
 
 # USERID:MD5PASSWD[plain]
-#example: 
-#postgres:1a1dc91c907325c69271ddf0c944bc72
+
