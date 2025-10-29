@@ -18,7 +18,7 @@ It eliminates the need for manual intervention or external scripts after a failo
 |----------|--------------|--------------|
 | **Online Recovery** | Allows data synchronization using base backup from primary to standby | Requires manual trigger via `pcp_recovery_node` or admin action |
 | **Auto Failback** | Reattaches standby nodes automatically when they become available | Does **not** ensure data consistency; unsafe without manual resync |
-| **🆕 Auto Resync & Reattach (New)** | Automatically runs `pg_rewind` and WAL replay before reattaching standby nodes | Fully automatic, no admin intervention, ensures data safety and consistency |
+| **🆕 Auto Resync & Reattach (New)** | Automatically runs `pg_rewind` and WAL replay before reattaching standby nodes | Fully automatic, no admin intervention, ensures data safety and consistency | Data synchronization |
 
 ---
 
@@ -30,6 +30,7 @@ It eliminates the need for manual intervention or external scripts after a failo
    - Triggered automatically during failover.  
    - Detects failed standby node and initiates `resync.sh` for synchronization.  
    - Logs operations and ensures safe detach/reattach.
+   - Handles both primary and standby failover.
 
    🔗 **Reference:**  
    [Pgpool-II failover.sh.sample](https://github.com/pgpool/pgpool2/blob/master/src/sample/scripts/failover.sh.sample)
@@ -46,17 +47,20 @@ It eliminates the need for manual intervention or external scripts after a failo
    - Validates connectivity, updates recovery parameters, and restarts PostgreSQL.  
    - Can be customized for multi-standby setups.
 
-   🗂️ Example Path: `/etc/pgpool2/scripts/resync.sh`
+   🔗 **Reference:**  
+   [Pgpool-II resync.sh.sample](https://github.com/pgpool/pgpool2/blob/master/src/sample/scripts/resync.sh.sample)
 
 4. **`recovery_1st_stage.sh` / `recovery_2nd_stage.sh`**
-   - Existing Pgpool-II online recovery helper scripts.  
+   - Which bring back the failed node to online   
    - Compatible with this enhancement for optional use.
+   - 
+   🔗 **Reference:**  
+   [Pgpool-II recovery.sh.sample](https://github.com/pgpool/pgpool2/blob/master/src/sample/scripts/recovery.sh.sample)
+
 
 ---
 
 ## 🧠 Architecture Diagram
-
-```
 
 ```
       +----------------------------+
@@ -246,3 +250,4 @@ Pgpool-II will automatically detect and reattach it 🎉
  *Crafted by Vasuki Anand ✨*
 
 ````
+
