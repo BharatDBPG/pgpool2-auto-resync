@@ -89,14 +89,13 @@ It eliminates the need for manual intervention or external scripts after a failo
           +----------------------+
 ```
 
-````
+
 
 ✨ This ensures that when a standby node goes out of sync during failover, it automatically:
 1. Runs `pg_rewind` to sync files with the new primary  
 2. Performs WAL replay for transaction alignment  
 3. Reattaches itself safely back to Pgpool-II  
 
----
 
 ## 🧰 Installation & Setup Steps
 
@@ -106,7 +105,6 @@ It eliminates the need for manual intervention or external scripts after a failo
 git clone https://github.com/BharatDBPG/pgpool2-auto-resync.git
 cd pgpool2-auto-resync
 ````
-
 ---
 
 ### 2️⃣ Build and Install Pgpool-II (if building from source)
@@ -250,4 +248,5 @@ Pgpool-II will automatically detect and reattach it 🎉
  *Crafted by Vasuki Anand ✨*
 
 ````
+
 
