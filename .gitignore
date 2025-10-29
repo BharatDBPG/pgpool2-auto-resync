@@ -1,0 +1,30 @@
+# Ignore real system files and credentials
+*.pid
+*.conf
+*.passwd
+*.bak
+*.log
+*.swp
+*.swo
+
+# Ignore PostgreSQL data directories
+/var/
+/etc/
+/lib/
+/tmp/
+/data/
+/archive/
+
+# Ignore OS or editor files
+*.tmp
+.DS_Store
+*.out
+
+# Ignore logs and temporary files
+logs/*.log
+*.pyc
+__pycache__/
+*.swp
+*.swo
+.DS_Store
+.env

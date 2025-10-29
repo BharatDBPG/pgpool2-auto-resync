@@ -1,0 +1,18 @@
+#change scram-sha to md5 to connect with  pgpool
+
+# PostgreSQL Client Authentication Configuration File (Sample)
+# Safe version for GitHub (remove IPs or private info)
+
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+local   all             all                                     trust
+host    all             all             127.0.0.1/32            md5
+host    replication     repl            127.0.0.1/32            md5
+host    all             all             ::1/128                 md5
+
+
+#add entry for host and replication with your user 
+#assuming user:postgres
+
+host    replication     postgres        127.0.0.1/32            md5
+host    all             postgres        127.0.0.1/32            md5
+

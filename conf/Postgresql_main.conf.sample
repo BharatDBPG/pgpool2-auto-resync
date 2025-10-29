@@ -1,0 +1,30 @@
+# PostgreSQL Configuration (Sample)
+# Safe to publish – paths, ports, and credentials removed
+
+#connection settings
+
+listen_addresses = '*'
+port=5432
+max_connections = 100 
+password_encryption = md5
+
+#replication settings
+wal_level = replica
+wal_keep_size= '1GB'
+max_wal_senders = 10
+archive_mode = on
+archive_command = 'cp %p /var/lib/postgresql/18/archive_wal/%f'
+
+#hot standby settings
+hot_standby = on
+
+#logging settings
+log_destination = 'stderr'
+logging_collector = on
+log_directory = '/var/log/postgresql'
+log_filename = 'postgresql-18-main.log'
+log_min_messages = info
+
+
+# Data Directory (example only, adjust in production)
+# data_directory = '/var/lib/postgresql/18/main'	
