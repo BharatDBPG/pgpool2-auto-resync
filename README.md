@@ -246,7 +246,3 @@ Pgpool-II will automatically detect and reattach it 🎉
 ---
 
  *Crafted by Vasuki Anand ✨*
-
-````
-
-
